@@ -11,7 +11,7 @@ This project is designed to exercise the following skills:
 
 - Reading and understanding a substantial amount of existing React code
 - Lifting React state from a child component to a parent component
-- Event hanlding in React across several levels of nested components
+- Event handling in React across several levels of nested components
 
 ## Introduction
 
