@@ -6,6 +6,7 @@ import "./styles/Track.css";
 // Here we use destructuring to extract the props into separate variables
 // See https://wesbos.com/destructuring-objects/
 const Track = ({title, artist, playtime, albumart, favorite}) => {
+  
   return (
     <li className="track">
       <img className="track--albumart" alt={`album art for ${title}`} src={albumart} />

@@ -25,32 +25,38 @@ const calculatePlayTime = (tracks) => {
   return `${hours}:${minutes}:${seconds}`;
 }
 
-const Playlist = (props) => {
-  const tracks = props.tracks;
-  const trackCount = tracks.length;
-  const playtime = calculatePlayTime(tracks);
-  const trackElements = tracks.map((track, i) => {
-    // We use "spread syntax" here to pass in all the properties of 
-    // the variable 'track' as props. Go look it up!
-    return (
-      <Track
-        key={track.id}
-        {...track}
-      />
-    );
-  });
+class Playlist extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      tracks: this.props.tracks
+    }
+  }
 
-  return (
-    <div className="playlist">
-      <h2>{props.side} Playlist</h2>
-      <p>
-        {trackCount} tracks - {playtime}
-      </p>
-      <ul className="playlist--track-list">
-        {trackElements}
-      </ul>
-    </div>
-  );
+  render () {
+    const trackElements = this.state.tracks.map((track, i) => {
+      // We use "spread syntax" here to pass in all the properties of 
+      // the variable 'track' as props. Go look it up!
+      return (
+        <Track
+          key={track.id}
+          {...track}
+        />
+      );
+    });
+
+    return (
+      <div className="playlist">
+        <h2>{this.props.side} Playlist</h2>
+        <p>
+          {this.props.trackCount} tracks - {playtime}
+        </p>
+        <ul className="playlist--track-list">
+          {this.props.trackElements}
+        </ul>
+      </div>
+    );
+  }
 }
 
 Playlist.propTypes = {
